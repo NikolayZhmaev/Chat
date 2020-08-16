@@ -1,0 +1,28 @@
+<!--<?scenebuilder-stylesheet /css/Styles.css?>-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox fx:controller="net.geekbrains.chat.ver5.client.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <HBox fx:id="upperPanel">
+        <TextField HBox.hgrow="ALWAYS" promptText="Логин" fx:id="loginField"/>
+        <PasswordField promptText="Пароль" fx:id="passwordField" onAction="#tryToAuth"/>
+        <Button text="Авторизоваться" onAction="#tryToAuth"/>
+    </HBox>
+
+    <!--<stylesheets><URL value="@/css/Styles.css"/></stylesheets>-->
+
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox VBox.vgrow="ALWAYS">
+            <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS"/>
+            <HBox fx:id="bottomPanel" managed="false" visible="false">
+                <TextField fx:id="textField" onAction="#sendMsg" HBox.hgrow="ALWAYS" promptText="Введите сообщение..."/>
+                <Button onAction="#sendMsg" fx:id="btn1" text="Send Msg"/>
+            </HBox>
+        </VBox>
+        <!--ListView - синхронизирован, поэтому подойдет для списка участников чата-->
+        <ListView fx:id="clientList" managed="false" visible="false">
+        </ListView>
+    </HBox>
+</VBox>
